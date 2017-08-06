@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_3citi.Views.VariantSelectedStopTimesPage"
+              Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+    <ContentPage.ToolbarItems>
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding TomorrowHeightLive}" />
+                <RowDefinition Height="{Binding TomorrowHeightTime}" />
+                <RowDefinition Height="{Binding TomorrowHeightTimeTomorrow}"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Spacing="0"
+                         Grid.Row="0"
+                         Grid.Column="0">
+                <Grid x:Name="TestTaki" RowSpacing="1" ColumnSpacing="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Linia"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}"
+                           FontSize="16"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Label Text="Kierunek"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}"
+                           FontSize="16"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                    <Label Text="Przyjazd"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}"
+                           FontSize="16"
+                           Grid.Row="0"
+                           Grid.Column="2"/>
+                    <Label Text="Opóźnienie"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}"
+                           FontSize="16"
+                           Grid.Row="0"
+                           Grid.Column="3"/>
+                </Grid>
+                <ListView x:Name="StopTimesListView"
+				        ItemsSource="{Binding DelaysCollection}"
+                        VerticalOptions="StartAndExpand"
+                        HasUnevenRows="true"
+                        RefreshCommand="{Binding Test}"
+                        IsPullToRefreshEnabled="true"
+                        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                        CachingStrategy="RecycleElement"
+                        IsVisible="{Binding LiveArrival}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid x:Name="Test" RowSpacing="1" ColumnSpacing="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="3*" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding RouteShortName}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            FontSize="16"
+                                            Grid.Row="0"
+                                            Grid.Column="0"/>
+                                        <Label Text="{Binding Headsign}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            FontSize="16"
+                                            Grid.Row="0"
+                                            Grid.Column="1"/>
+                                        <Label Text="{Binding EstimatedTime}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            FontSize="16"
+                                            Grid.Row="0"
+                                            Grid.Column="2"/>
+                                        <Label Text="{Binding DelayInSeconds}"
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemTextStyle}"
+                                            FontSize="16"
+                                            Grid.Row="0"
+                                            Grid.Column="3"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <BoxView BackgroundColor="Red" HeightRequest="1" />
+            </StackLayout>
+
+
+
+            <Label Text="{Binding NoteSymbol}"
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemTextStyle}"
+                   FontSize="16"
+                   IsVisible="{Binding IsNoteSymbolVisible}"/>
+            <Label Text="{Binding NoteDescription}"
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemTextStyle}"
+                   FontSize="16"
+                   IsVisible="{Binding IsNoteDescriptionVisible}"/>
+            <StackLayout 
+                          IsVisible="{Binding IsTimeVisible}"
+                          Spacing="0"
+                          VerticalOptions="EndAndExpand"
+                          Grid.Row="1"
+                          Grid.Column="0">
+                <Label Text="Przyjazdy danego dnia:"
+                    LineBreakMode="NoWrap"
+                    Style="{DynamicResource ListItemTextStyle}"
+                    FontSize="16"/>
+                <ListView x:Name="VariantSelectedStopTimesListView"
+				        ItemsSource="{Binding RouteStopTimes.Times}"
+                        VerticalOptions="EndAndExpand"
+                        HasUnevenRows="true"
+                        CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Hour}"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemTextStyle}"
+                                        FontSize="16"/>
+                                    <Label Text="{Binding minutesString}"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemTextStyle}"
+                                        FontSize="16"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+            <StackLayout
+                    IsVisible="{Binding IsTomorrowVisible}"
+                    Spacing="0"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalOptions="EndAndExpand">
+                <Label Text="Przyjazdy następnego dnia:"
+                    LineBreakMode="NoWrap"
+                    Style="{DynamicResource ListItemTextStyle}"
+                    FontSize="16"/>
+                <ListView x:Name="VariantSelectedStopTimesTomorrowListView"
+				        ItemsSource="{Binding RouteStopTimes.TimesTomorrow}"
+                        VerticalOptions="EndAndExpand"
+                        HasUnevenRows="true"
+                        CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Hour}"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemTextStyle}"
+                                        FontSize="16"/>
+                                    <Label Text="{Binding minutesString}"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemTextStyle}"
+                                        FontSize="16"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

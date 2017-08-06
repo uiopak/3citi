@@ -10,50 +10,130 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewItemPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ObservableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseDataObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\ItemsPage.xaml.cs">
-      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Delay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\DelayTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Direction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Route.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RouteDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RouteStopTimes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RouteTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Stop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopHoursMinutes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopsInTrip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopsTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopTime.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopTimeTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\StopTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Trip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Variant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TripTop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IRoutesDayDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IRouteDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IStopDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IStopDelaylDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IStopTimeDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ITripDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockRoutesDayDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockRoutesDataStoreBackup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockStopDelayDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockStopsDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockStopsTimeDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockTripDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DirectionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoutesDayViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RoutesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StopDetailViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StopsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VariantSelectedStopTimesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VariantStopsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VariantsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\DirectionsPage.xaml.cs">
+      <DependentUpon>DirectionsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ObservableObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ObservableRangeCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\MessengingCenterAlert.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml.cs">
-      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RoutesDayPage.xaml.cs">
+      <DependentUpon>RoutesDayPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NewItemPage.xaml.cs">
-      <DependentUpon>NewItemPage.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RoutesPage.xaml.cs">
+      <DependentUpon>RoutesPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StopDetailPage.xaml.cs">
+      <DependentUpon>StopDetailPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StopsPage.xaml.cs">
+      <DependentUpon>StopsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\VariantSelectedStopTimesPage.xaml.cs">
+      <DependentUpon>VariantSelectedStopTimesPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\VariantsPage.xaml.cs">
+      <DependentUpon>VariantsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\VariantStopsPage.xaml.cs">
+      <DependentUpon>VariantStopsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\RoutesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\StopsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\StopDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\RoutesDayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\DirectionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\VariantsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\VariantStopsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\VariantSelectedStopTimesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
