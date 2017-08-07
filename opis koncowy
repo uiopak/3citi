@@ -1,6 +1,14 @@
 Film: https://youtu.be/TMpsjCkqCqg
 
+Aplikacja namisana w xamarin forms
+Pozwala sprawdzić najbliższe przyjazdy na przystanek:
 W zakładce Przystanki(StopsPage) wyświetlana jest lista Przystanków
+Po wybraniu przystanku wyświetlana jest lista najbliźszych przyjazdów
+Oraz rozkład lini:
+W drugiej zakładce jest lista dzni tygodni po wybraniu jednego, wyświetla się lista lini które kursują danego dnia,
+po wybraniu lini, wybieramy kierunek następnie waraiant, wtedy wyświetla się lista przystanków, po wybraniu jednego 
+wyświetlanją nam się najbliźsze przyjazdy na przystanek oraz czasy kiedy dany wariant danej lini w danym kierunku danego dnia
+się zatrzymuje.
 W StopsViewModel 
 var stops = await StopDataStore.GetItemsAsync(true);
 przypisuje stops liste przystanków
