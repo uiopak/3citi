@@ -25,6 +25,7 @@ namespace _3citi.ViewModels
 
             RoutesCollection = new ObservableCollection<Route>();
             RoutesBackupCollection = new ObservableCollection<Route>();
+            RouteDay.routes.Sort((x, y) => x.RouteId.CompareTo(y.RouteId));
 
             foreach (Route item in RouteDay.routes)
             {
@@ -66,7 +67,6 @@ namespace _3citi.ViewModels
             {
                 RoutesCollection.Clear();
                 var routes = RouteDay.routes;
-                routes.Sort((x, y) => x.RouteId.CompareTo(y.RouteId));
                 foreach (Route route in routes)
                 {
                     RoutesCollection.Add(route);
