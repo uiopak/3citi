@@ -40,7 +40,7 @@ namespace _3citi.Services
 
             delays = new List<Delay>();
             var client = new HttpClient();
-            var jsonDelaysUrl = "http://87.98.237.99:88/delays?stopId=" + stopId;
+            var jsonDelaysUrl = "http://ckan2.multimediagdansk.pl/delays?stopId=" + stopId;
             var jsonDelays = await client.GetStringAsync(jsonDelaysUrl);
             DelayTop jDelaysObject = JsonConvert.DeserializeObject<DelayTop>(jsonDelays);
 

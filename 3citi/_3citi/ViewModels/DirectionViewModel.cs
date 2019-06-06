@@ -40,8 +40,7 @@ namespace _3citi.ViewModels
                 case 1: return "GAiT Autobusy";
                 case 2: return "GAiT Tramwaje";
                 case 3: return "Warbus Gdańsk";
-                case 4: return "PKS Gdańsk";
-                case 5: return "PKT Gdyniak";
+                case 5: return "PKT Gdynia";
                 case 6: return "PKA Gdynia";
                 case 7: return "PA GRYF";
                 case 8: return "PKM Gdynia";
@@ -49,6 +48,8 @@ namespace _3citi.ViewModels
                 case 10: return "PKS Gdynia";
                 case 11: return "Warbus Gdynia";
                 case 17: return "Irex";
+                case 18: return "BP Tour";
+                case 19: return "Żegluga Gdańska";
                 default: return "Błąd";
             }
         }
