@@ -39,7 +39,7 @@ namespace _3citi.Services
 
             stopsTime = new List<StopTime>();
             var client = new HttpClient();
-            var jsonStopsTimeUrl = "http://87.98.237.99:88/stopTimes?date=" + DateTime.Now.AddDays(i).Date.ToString("yyyy-MM-dd") + "&routeId=" + route;
+            var jsonStopsTimeUrl = "http://ckan2.multimediagdansk.pl/stopTimes?date=" + DateTime.Now.AddDays(i).Date.ToString("yyyy-MM-dd") + "&routeId=" + route;
             var jsonStopsTime = await client.GetStringAsync(jsonStopsTimeUrl);
             jsonStopsTime = jsonStopsTime.Replace("virtual", "virtualId");
             StopTimeTop jStopsTimeObjectTest = JsonConvert.DeserializeObject<StopTimeTop>(jsonStopsTime);

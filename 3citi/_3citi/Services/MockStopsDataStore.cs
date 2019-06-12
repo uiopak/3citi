@@ -34,7 +34,7 @@ namespace _3citi.Services
 
             stops = new List<Stop>();
             var client = new HttpClient();
-            var jsonStopsUrl = "http://91.244.248.30/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/4c4025f0-01bf-41f7-a39f-d156d201b82b/download/stops.json";
+            var jsonStopsUrl = "https://ckan.multimediagdansk.pl/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/4c4025f0-01bf-41f7-a39f-d156d201b82b/download/stops.json";
             var jsonStops = await client.GetStringAsync(jsonStopsUrl);
             Dictionary<string, StopTop> jStopsObject = JsonConvert.DeserializeObject<Dictionary<string, StopTop>>(jsonStops);
             StopTop DayStops = new StopTop();

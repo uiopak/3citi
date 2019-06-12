@@ -40,7 +40,7 @@ namespace _3citi.Services
 
             trips = new List<Trip>();
             var client = new HttpClient();
-            var jsonTripsUrl = "http://91.244.248.30/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/b15bb11c-7e06-4685-964e-3db7775f912f/download/trips.json";
+            var jsonTripsUrl = "https://ckan.multimediagdansk.pl/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/b15bb11c-7e06-4685-964e-3db7775f912f/download/trips.json";
             var jsonTrips = await client.GetStringAsync(jsonTripsUrl);
             Dictionary<string, TripTop> jTripObject = JsonConvert.DeserializeObject<Dictionary<string, TripTop>>(jsonTrips);
             TripTop DayTrips = new TripTop();
